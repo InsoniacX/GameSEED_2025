@@ -14,9 +14,9 @@ TagManager:
   - UI
   - Wall
   - Obstacle
+  - Ground
   - 
-  - 
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -44,6 +44,12 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3502383523
+    locked: 0
+  - name: Player
+    uniqueID: 862718877
+    locked: 0
+  - name: Foreground
+    uniqueID: 1994138873
     locked: 0
   m_RenderingLayers:
   - Default
