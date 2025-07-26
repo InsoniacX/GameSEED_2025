@@ -20,10 +20,10 @@ public class PlayerScript : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         playerBody.linearVelocity = new Vector2(horizontalInput * speed, playerBody.linearVelocity.y);
 
-        if(horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
-        else if(horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+        //if(horizontalInput > 0.01f)
+        //    transform.localScale = Vector3.one;
+        //else if(horizontalInput < -0.01f)
+        //    transform.localScale = new Vector3(-1, 1, 1);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             Jump();
