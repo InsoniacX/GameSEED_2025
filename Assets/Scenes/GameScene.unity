@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 693367838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a9b11ada75cdf49a95d5f5ef4bd6aa, type: 3}
+  m_Script: {fileID: 11500000, guid: c4707c54408397f4283d18dbe8cddb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
@@ -1752,6 +1752,15 @@ MonoBehaviour:
   attackCooldown: 0.5
   projectilePoint: {fileID: 0}
   projectiles: []
+  hasRangeAttack: 0
+  meleeCooldown: 0
+  meleePoint: {fileID: 0}
+  meleeRange: 0
+  meleeDamage: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  meleeAttackDelay: 0
 --- !u!1 &808594339
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,10 +3235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f151c3f43fa82094c98809d20e8901e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 693367844}
-  deadzoneY: 1.5
-  cameraSpeed: 5
-  fixedZ: -10
 --- !u!4 &1830017267
 Transform:
   m_ObjectHideFlags: 0
