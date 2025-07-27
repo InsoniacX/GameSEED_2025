@@ -15,15 +15,9 @@ public class LogicScript : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void FixedUpdate()
     {
-        //Debug.Log("Score : " + score);
+        Debug.Log("Score : " + score);
     }
 
     public void addScore(float scoreTodAdd)
@@ -34,6 +28,10 @@ public class LogicScript : MonoBehaviour
     public void gameOver()
     {
         SceneManager.LoadScene(0);
+        if (score >  highScore)
+        {
+            highScore += score;
+        }
     }
 
 }
