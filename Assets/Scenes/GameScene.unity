@@ -4126,13 +4126,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1865481865}
         m_TargetAssemblyTypeName: NewMonoBehaviourScript, Assembly-CSharp
         m_MethodName: MainMenuBtn
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenuScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1966826607
