@@ -10,9 +10,9 @@ public class ScrollingBackgroundScript : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        if (horizontalInput > 0.01f && !wallCheckScript.isTouchingWall)
+        if (horizontalInput > 0.01f && !wallCheckScript.isTouchingWall && !wallCheckScript.isTouchingGround)
             bgRenderer.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0);
-        else if (horizontalInput < -0.01f && !wallCheckScript.isTouchingWall)
+        else if (horizontalInput < -0.01f && !wallCheckScript.isTouchingWall && !wallCheckScript.isTouchingGround)
             bgRenderer.material.mainTextureOffset -= new Vector2(speed * Time.deltaTime, 0);
 
     }
