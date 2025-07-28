@@ -28,10 +28,11 @@ public class LogicScript : MonoBehaviour
     public void gameOver()
     {
         SceneManager.LoadScene(0);
+       
         if (score >  highScore)
         {
             highScore += score;
+            PlayerPrefs.SetFloat("HighScore", score);
         }
     }
-
 }
