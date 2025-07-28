@@ -20,17 +20,6 @@ public class PlayerColiison : MonoBehaviour
         {
             logicScript.gameOver();
             collision.gameObject.SetActive(false);
-        } else if (collision.gameObject.name == "Platform")
-        {
-            transform.SetParent(collision.transform);
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Platform")
-        {
-            transform.SetParent(null);
         }
     }
 }
