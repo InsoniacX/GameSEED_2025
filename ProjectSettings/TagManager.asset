@@ -11,6 +11,12 @@ TagManager:
   - Skor Point
   - Portal
   - CameraZone
+  - Enemy
+  - Wall
+  - Cinemachine
+  - PortalDestination
+  - FloatingBed
+  - FallingLine
   layers:
   - Default
   - TransparentFX
@@ -23,12 +29,12 @@ TagManager:
   - Player
   - Portal
   - CameraZone
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Cinemachine
+  - PortalDestination
+  - FloatingBed
+  - Logic
+  - FallingLine
   - 
   - 
   - 

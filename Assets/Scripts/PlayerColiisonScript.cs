@@ -35,7 +35,7 @@ public class PlayerColiison : MonoBehaviour
         {
             logicScript.addScore(20);
             collision.gameObject.SetActive(false);
-        } else if (collision.CompareTag("Obstacle"))
+        } else if (collision.CompareTag("FallingLine"))
         {
             logicScript.gameOver();
             collision.gameObject.SetActive(false);

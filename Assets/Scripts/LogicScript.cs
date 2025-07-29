@@ -17,7 +17,7 @@ public class LogicScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log("Score : " + score);
+        //Debug.Log("Score : " + score);
     }
 
     public void addScore(float scoreTodAdd)
