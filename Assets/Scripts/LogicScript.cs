@@ -8,12 +8,7 @@ public class LogicScript : MonoBehaviour
 
     public float score;
     private float highScore;
-<<<<<<< HEAD
-    public GameObject player;
-    //public TextMeshProGUI scoreText;
-=======
     public GameObject container;
->>>>>>> a56c3b4bc456897242a340f1ca26dfbac861662a
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
