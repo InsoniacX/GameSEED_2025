@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Ground
+  - Logic
+  - Obstacle
+  - Background
+<<<<<<< HEAD
+  - Enemy
+=======
+  - Skor Point
+>>>>>>> a56c3b4bc456897242a340f1ca26dfbac861662a
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Wall
+  - Obstacle
+  - Player
+<<<<<<< HEAD
+  - Enemy
+=======
+  - 
+>>>>>>> a56c3b4bc456897242a340f1ca26dfbac861662a
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3502383523
+    locked: 0
+  - name: Trap
+    uniqueID: 3780328695
+    locked: 0
+  - name: Ground
+    uniqueID: 756588007
+    locked: 0
+  - name: Wall
+    uniqueID: 2193599223
+    locked: 0
+  - name: Player
+    uniqueID: 4268006395
+    locked: 0
+  m_RenderingLayers:
+  - Default
