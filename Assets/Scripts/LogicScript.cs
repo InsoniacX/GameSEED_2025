@@ -27,6 +27,7 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver()
     {
+        Time.timeScale = 0f;
         container.SetActive(true);
         if (score >  highScore)
         {

@@ -35,9 +35,9 @@ TagManager:
   - FloatingBed
   - Logic
   - FallingLine
-  - 
-  - 
-  - 
+  - BlurTarget
+  - Background
+  - WaterInteract
   - 
   - 
   - 
@@ -51,11 +51,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 3502383523
+    locked: 0
+  - name: Player
+    uniqueID: 2606514181
+    locked: 0
+  - name: SortingTexture
+    uniqueID: 1203389833
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   m_RenderingLayers:
   - Default
