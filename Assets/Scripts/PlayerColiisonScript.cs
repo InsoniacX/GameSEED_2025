@@ -7,10 +7,14 @@ public class PlayerColiison : MonoBehaviour
 
     private float horizontalInput;
     private float playerStep;
+    private ParallaxBackground[] allParallax;
 
     private void Awake()
     {
         logicScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        allParallax = UnityEngine.Object.FindObjectsByType<ParallaxBackground>(
+    FindObjectsSortMode.None
+);
     }
 
     private void Update()
@@ -39,6 +43,12 @@ public class PlayerColiison : MonoBehaviour
         {
             logicScript.gameOver();
             collision.gameObject.SetActive(false);
+        } else if (collision.CompareTag("Portal"))
+        {
+            foreach (ParallaxBackground pb in allParallax)
+            {
+                pb.ResetParallax();
+            }
         }
     }
 }
