@@ -81,7 +81,7 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("Player has died.");
         playerBody.linearVelocity = Vector2.zero;
-        playerBody.simulated = false;
+        StartCoroutine(SimulatedDelay(1f));
 
         playerAnimation.SetTrigger("Die"); // bisa diganti efek mati/animasi
 
@@ -93,6 +93,12 @@ public class PlayerHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Respawn();
+    }
+
+    private IEnumerator SimulatedDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        playerBody.simulated = false;
     }
 
     private void Respawn()
