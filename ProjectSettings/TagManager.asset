@@ -38,7 +38,7 @@ TagManager:
   - BlurTarget
   - Background
   - WaterInteract
-  - 
+  - FOG
   - 
   - 
   - 
@@ -59,6 +59,9 @@ TagManager:
     locked: 0
   - name: SortingTexture
     uniqueID: 1203389833
+    locked: 0
+  - name: FOG
+    uniqueID: 1110437833
     locked: 0
   - name: Default
     uniqueID: 0

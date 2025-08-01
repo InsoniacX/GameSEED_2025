@@ -13,26 +13,21 @@ public class FloatingObjectScript : MonoBehaviour
     [SerializeField] private float floatSpeed = 1f;
     [SerializeField] private float floatHeight = 0.5f;
     private Vector3 startPos;
+    private float startY;
+
 
     private void Start()
     {
         startPos = transform.position;
         InvokeRepeating("ChangeTarget", 0, WaitBetweenWobbles);
+        startY = transform.localPosition.y;
     }
 
     private void Update()
     {
-        /*Vector3 floatOffset = new Vector3(
-            Mathf.Sin(Time.time * 0.5f),
-            Mathf.Cos(Time.time * 0.75f),
-            0
-        ) * 0.05f;
-
-        transform.position += floatOffset * Time.deltaTime;*/
-        //transform.rotation = Quaternion.Lerp(transform.rotation, _targetAngle, Time.deltaTime);
-
-        //transform.rotation = Quaternion.Lerp(transform.rotation, _targetAngle, Time.deltaTime);
-        transform.position = startPos + Vector3.up * Mathf.Sin(Time.time * floatSpeed) * floatHeight;
+        Vector3 localPos = transform.localPosition;
+        localPos.y = startY + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
+        transform.localPosition = localPos;
     }
 
     void ChangeTarget()

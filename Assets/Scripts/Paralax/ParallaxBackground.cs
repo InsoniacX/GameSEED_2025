@@ -5,7 +5,8 @@ using UnityEngine;
 public class ParallaxBackground : MonoBehaviour
 {
     public ParallaxCamera parallaxCamera;
-    List<ParallaxLayer> parallaxLayers = new List<ParallaxLayer>();
+    private List<ParallaxLayer> parallaxLayers = new List<ParallaxLayer>();
+    private Dictionary<ParallaxLayer, Vector3> initialPositions = new Dictionary<ParallaxLayer, Vector3>();
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class ParallaxBackground : MonoBehaviour
     void SetLayers()
     {
         parallaxLayers.Clear();
+        initialPositions.Clear();
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -30,6 +32,7 @@ public class ParallaxBackground : MonoBehaviour
             {
                 layer.name = "Layer-" + i;
                 parallaxLayers.Add(layer);
+                initialPositions[layer] = layer.transform.position; // simpan posisi awal
             }
         }
     }
@@ -39,6 +42,16 @@ public class ParallaxBackground : MonoBehaviour
         foreach (ParallaxLayer layer in parallaxLayers)
         {
             layer.Move(delta);
+        }
+    }
+    public void ResetParallax()
+    {
+        foreach (ParallaxLayer layer in parallaxLayers)
+        {
+            if (initialPositions.ContainsKey(layer))
+            {
+                layer.transform.position = initialPositions[layer];
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a62c98f951da5c04baa0cb5c67b091a9
+guid: 4661a7774aca55b448298ba27e7e3205
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -919256408230115659
-    second: middleground_0
+      213: 3902921352701605359
+    second: Asset 249@6x_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +40,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: middleground_0
+      name: Asset 249@6x_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 272
-        height: 176
+        x: 412
+        y: 415
+        width: 1458
+        height: 2843
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5b641f9ca252e33f0800000000000000
-      internalID: -919256408230115659
+      spriteID: fe5f01eaa46f92630800000000000000
+      internalID: 3902921352701605359
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      middleground_0: -919256408230115659
+      Asset 249@6x_0: 3902921352701605359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

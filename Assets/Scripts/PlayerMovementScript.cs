@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour
         else if (horizontalInput < -0.01f && transform.localScale.x > 0)
             Flip();
 
+
         playerAnimation.SetBool("isRunning", horizontalInput != 0);
         playerAnimation.SetBool("isGrounded", isGrounded());
 
