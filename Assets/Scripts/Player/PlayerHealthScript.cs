@@ -81,7 +81,7 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("Player has died.");
         playerBody.linearVelocity = Vector2.zero;
-        playerBody.simulated = false;
+        //playerBody.simulated = false;
 
         playerAnimation.SetTrigger("Die"); // bisa diganti efek mati/animasi
 
