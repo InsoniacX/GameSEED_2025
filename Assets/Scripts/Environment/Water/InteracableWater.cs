@@ -155,7 +155,7 @@ public class InteractableWater : MonoBehaviour
         }
 
         //construct triangles
-        int[] triangles = new int[(NumOfXVertices - 1) * (NUM_OF_Y_VERTICES) * 6];
+        int[] triangles = new int[(NumOfXVertices - 1) * (NUM_OF_Y_VERTICES - 1) * 6];
         int index = 0;
 
         for (int y = 0; y < NUM_OF_Y_VERTICES -1; y++)
@@ -286,7 +286,7 @@ public class InteracableWaterEditor : Editor
         if (EditorGUI.EndChangeCheck())
         {
             ChangeDimensions(ref _water.Width, ref _water.Height, corners[1].x - newBottomLeft.x, corners[3].y - newBottomLeft.y);
-            _water.transform.position = new Vector3((newBottomLeft.x + corners[1].x) / 2, (newBottomLeft.y + corners[3].y) / 2, 0);
+            _water.transform.position = new Vector3((newBottomLeft.x + corners[0].x) / 2, (newBottomLeft.y + corners[0].y) / 2, 0);
         }
 
         EditorGUI.BeginChangeCheck();
@@ -294,7 +294,7 @@ public class InteracableWaterEditor : Editor
         if (EditorGUI.EndChangeCheck())
         {
             ChangeDimensions(ref _water.Width, ref _water.Height, newBottomRight.x - corners[0].x, corners[3].y - newBottomRight.y);
-            _water.transform.position = new Vector3((corners[0].x + newBottomRight.x) / 2, (newBottomRight.y + corners[3].y) / 2, 0);
+            _water.transform.position = new Vector3((newBottomRight.x - corners[1].x) / 2, (newBottomRight.y - corners[1].y) / 2, 0);
         }
 
         EditorGUI.BeginChangeCheck();
@@ -302,7 +302,7 @@ public class InteracableWaterEditor : Editor
         if (EditorGUI.EndChangeCheck())
         {
             ChangeDimensions(ref _water.Width, ref _water.Height, corners[3].x - newTopLeft.x, newTopLeft.y - corners[0].y);
-            _water.transform.position = new Vector3((newTopLeft.x + corners[3].x) / 2, (newTopLeft.y + corners[0].y) / 2, 0);
+            _water.transform.position = new Vector3((newTopLeft.x - corners[2].x) / 2, (newTopLeft.y + corners[2].y) / 2, 0);
         }
 
         EditorGUI.BeginChangeCheck();
@@ -310,7 +310,7 @@ public class InteracableWaterEditor : Editor
         if (EditorGUI.EndChangeCheck())
         {
             ChangeDimensions(ref _water.Width, ref _water.Height, newTopRight.x - corners[2].x, newTopRight.y - corners[0].y);
-            _water.transform.position = new Vector3((corners[2].x + newTopRight.x) / 2, (newTopRight.y + corners[0].y) / 2, 0);
+            _water.transform.position = new Vector3((newTopRight.x - corners[3].x) / 2, (newTopRight.y + corners[3].y) / 2, 0);
         }
 
         // Update the mesh if the handles are moved
