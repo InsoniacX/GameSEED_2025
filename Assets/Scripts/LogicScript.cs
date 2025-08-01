@@ -7,18 +7,12 @@ public class LogicScript : MonoBehaviour
 
     public float score;
     private float highScore;
-    public GameObject player;
+    public GameObject container;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void FixedUpdate()
@@ -33,7 +27,25 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver()
     {
+        Time.timeScale = 0f;
+        container.SetActive(true);
+        if (score >  highScore)
+        {
+            highScore += score;
+        }
+    }
+
+    public void retryBtn()
+    {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1; // Resume the game
+    }
+
+    public void mainMenuBtn()
+    {
+        // Load the main menu scene (assuming it's named "MainMenu")
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1; // Ensure time scale is reset when loading a new scene
     }
 
 }

@@ -26,10 +26,11 @@ public class PlayerScript : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
-        if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+        if (horizontalInput > 0.01f && transform.localScale.x < 0)
+            Flip();
+        else if (horizontalInput < -0.01f && transform.localScale.x > 0)
+            Flip();
+
 
         playerAnimation.SetBool("isRunning", horizontalInput != 0);
         playerAnimation.SetBool("isGrounded", isGrounded());
@@ -90,5 +91,12 @@ public class PlayerScript : MonoBehaviour
     public bool canAttack()
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
+    }
+
+    private void Flip()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 }
