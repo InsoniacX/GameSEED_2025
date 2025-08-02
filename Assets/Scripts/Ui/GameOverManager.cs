@@ -7,36 +7,19 @@ public class GameOverManager : MonoBehaviour
     public static GameOverManager Instance;
 
     [SerializeField] private GameObject container;
-    [SerializeField] private Text scoreText;
-
-    //private void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //    }
-
-    //    // Sembunyikan panel game over saat awal
-    //    container.SetActive(false);
-
-    //}
 
     // Fungsi untuk menampilkan game over
-    public void ShowGameOver(int score)
-    {
-        // Tampilkan panel game over
-        container.SetActive(true);
+    //public void ShowGameOver(int score)
+    //{
+    //    // Tampilkan panel game over
+    //    container.SetActive(true);
 
-        // Update teks skor
-        scoreText.text = "your score is : " + score.ToString();
+    //    // Update teks skor
+    //    scoreText.text = "your score is : " + score.ToString();
 
-        // Jeda game
-        Time.timeScale = 0f;
-    }
+    //    // Jeda game
+    //    Time.timeScale = 0f;
+    //}
 
     // Fungsi untuk mengulang game
     public void RetryGame()
