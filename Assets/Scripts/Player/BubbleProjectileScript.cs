@@ -1,4 +1,5 @@
 using UnityEngine;
+using static EnemyHealth;
 
 public class BubbleProjectileScript : MonoBehaviour
 {

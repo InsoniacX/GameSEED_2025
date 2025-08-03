@@ -10,11 +10,15 @@ public class LogicScript : MonoBehaviour
     private float highScore;
     public GameObject container;
     public TMP_Text scoreText;
+    public TMP_Text inGameScoreText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (inGameScoreText != null)
+        {
+            inGameScoreText.text = "Score: 0";
+        }
     }
 
     private void FixedUpdate()
@@ -25,6 +29,10 @@ public class LogicScript : MonoBehaviour
     public void addScore(float scoreTodAdd)
     {
         score += scoreTodAdd;
+        if (inGameScoreText != null)
+        {
+            inGameScoreText.text = "Score: " + score.ToString("0");
+        }
     }
 
     public void gameOver()

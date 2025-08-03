@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -8,6 +9,15 @@ public class EnemyHealth : MonoBehaviour
 
     private int currentHealth;
     private bool isDead = false;
+    public event System.Action OnDeath;
+
+    public enum EnemyType
+    {
+        Normal,
+        Middle,
+        Boss
+    }
+    public EnemyType enemyType = EnemyType.Normal;
 
     private void Awake()
     {
@@ -25,14 +35,11 @@ public class EnemyHealth : MonoBehaviour
         if (isDead) return;
 
         currentHealth -= amount;
+        Debug.Log($"{gameObject.name} took {amount} damage. Remaining health: {currentHealth}");
 
         if (currentHealth <= 0)
         {
             Die();
-        }
-        else
-        {
-            //enemyAnimator?.SetTrigger("Hurt");
         }
     }
 
@@ -61,5 +68,20 @@ public class EnemyHealth : MonoBehaviour
     public bool IsDead()
     {
         return isDead;
+    }
+
+    public void FloatForSeconds(float duration)
+    {
+        StartCoroutine(FloatCoroutine(duration));
+    }
+
+    private IEnumerator FloatCoroutine(float duration)
+    {
+        if (enemyRigidbody != null)
+        {
+            enemyRigidbody.gravityScale = -0.2f; // Naik pelan
+            yield return new WaitForSeconds(duration);
+            enemyRigidbody.gravityScale = 1f; // Normal kembali
+        }
     }
 }
