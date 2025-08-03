@@ -2346,7 +2346,7 @@ GameObject:
   - component: {fileID: 216690268}
   - component: {fileID: 216690267}
   - component: {fileID: 216690266}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2528,7 +2528,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &223822012
@@ -3935,7 +3935,7 @@ GameObject:
   - component: {fileID: 396746231}
   - component: {fileID: 396746230}
   - component: {fileID: 396746229}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4117,7 +4117,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &409679628
@@ -4170,7 +4170,7 @@ GameObject:
   - component: {fileID: 424535830}
   - component: {fileID: 424535829}
   - component: {fileID: 424535828}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4352,7 +4352,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &456446348
@@ -7288,7 +7288,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 977984088}
   - {fileID: 871382087}
   - {fileID: 48067928}
   - {fileID: 1976291613}
@@ -7309,7 +7308,7 @@ GameObject:
   - component: {fileID: 825148723}
   - component: {fileID: 825148722}
   - component: {fileID: 825148721}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7491,7 +7490,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &833032320
@@ -8075,7 +8074,7 @@ GameObject:
   - component: {fileID: 890859639}
   - component: {fileID: 890859638}
   - component: {fileID: 890859637}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8257,7 +8256,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!224 &894672338 stripped
@@ -8745,7 +8744,7 @@ GameObject:
   - component: {fileID: 952704304}
   - component: {fileID: 952704303}
   - component: {fileID: 952704302}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8927,7 +8926,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &960738418
@@ -9180,58 +9179,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.06336546, y: 2.2008302}
   m_EdgeRadius: 0
---- !u!1 &977984087
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 977984088}
-  - component: {fileID: 977984089}
-  m_Layer: 0
-  m_Name: MiddleSpawnArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &977984088
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977984087}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.1, y: 14, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 821046688}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &977984089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977984087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
-  spawnInterval: 5
-  maxEnemies: 2
-  areaSize: {x: 8.5, y: 1.53}
-  useWaveMode: 0
-  enemiesPerWave: 5
-  waveInterval: 10
 --- !u!1 &980809706
 GameObject:
   m_ObjectHideFlags: 0
@@ -10208,7 +10155,7 @@ GameObject:
   - component: {fileID: 1125807289}
   - component: {fileID: 1125807288}
   - component: {fileID: 1125807287}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10390,7 +10337,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1131349672
@@ -12239,7 +12186,7 @@ GameObject:
   - component: {fileID: 1330295189}
   - component: {fileID: 1330295188}
   - component: {fileID: 1330295187}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12421,7 +12368,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1332899689
@@ -14898,7 +14845,7 @@ GameObject:
   - component: {fileID: 1600506645}
   - component: {fileID: 1600506644}
   - component: {fileID: 1600506643}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15080,7 +15027,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!43 &1624689723
@@ -15666,7 +15613,7 @@ MonoBehaviour:
   - {fileID: 424535826}
   - {fileID: 396746227}
   - {fileID: 952704300}
-  currentWeapon: 0
+  currentWeapon: 1
 --- !u!50 &1657209158
 Rigidbody2D:
   serializedVersion: 5
@@ -16749,7 +16696,7 @@ GameObject:
   - component: {fileID: 1852435992}
   - component: {fileID: 1852435991}
   - component: {fileID: 1852435990}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16931,7 +16878,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1852846881
@@ -19063,7 +19010,7 @@ GameObject:
   - component: {fileID: 2084191378}
   - component: {fileID: 2084191377}
   - component: {fileID: 2084191376}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19245,7 +19192,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2102911594
@@ -19599,7 +19546,7 @@ GameObject:
   - component: {fileID: 2128451499}
   - component: {fileID: 2128451498}
   - component: {fileID: 2128451497}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19781,7 +19728,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 0.66}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2131446043

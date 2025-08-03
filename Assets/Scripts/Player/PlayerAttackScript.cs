@@ -50,12 +50,29 @@ public class PlayerAttackScript : MonoBehaviour
             playerAnimation.SetInteger("WeaponID", 2);
         }
 
-        if (currentWeapon == WeaponType.Melee && Input.GetMouseButtonDown(0) && cooldownTimer >= attackCooldown)
+        if (Input.GetMouseButtonDown(0) && cooldownTimer >= attackCooldown)
         {
-            MeleeAttack();
+            switch (currentWeapon)
+            {
+                case WeaponType.Melee:
+                    MeleeAttack();
+                    break;
+
+                case WeaponType.MagicWand:
+                    FireProjectile();
+                    playerAnimation.SetTrigger("Attack_MagicWand");
+                    cooldownTimer = 0f;
+                    break;
+
+                case WeaponType.BubbleGun:
+                    FireProjectile();
+                    playerAnimation.SetTrigger("Attack_BubbleGun");
+                    cooldownTimer = 0f;
+                    break;
+            }
         }
 
-        cooldownTimer += Time.deltaTime;
+            cooldownTimer += Time.deltaTime;
     }
 
     private void MeleeAttack()
