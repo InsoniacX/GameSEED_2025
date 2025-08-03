@@ -8,6 +8,7 @@ public class LogicScript : MonoBehaviour
     private float highScore;
     public GameObject container;
     public TMP_Text scoreText;
+    public TMP_Text inGameScoreText;
 
     void Start()
     {
