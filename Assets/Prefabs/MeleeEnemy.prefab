@@ -314,10 +314,10 @@ MonoBehaviour:
   moveSpeed: 3
   detectionRange: 6
   attackRange: 0.4
-  attackCooldown: 1.5
+  attackCooldown: 2
   damage: 50
-  contactDamage: 50
-  damageCooldown: 1
+  contactDamage: 30
+  damageCooldown: 1.5
   groundCheck: {fileID: 9151754315233016108}
   groundCheckRadius: 0.1
   groundLayer:
@@ -337,3 +337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   enemyRigidbody: {fileID: 0}
+  knockbackForce: 10
+  knockbackDuration: 0.2
+  enemyType: 0

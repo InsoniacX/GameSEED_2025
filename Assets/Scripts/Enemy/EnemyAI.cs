@@ -22,9 +22,9 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D enemyBody;
     //private Animator animator;
     private Transform player;
-    private float cooldownTimer;
+    private float attackTimer;
     private bool isFacingRight = true;
-    private float lastDamageTime;
+    private float lastContactDamageTime;
 
     private void Awake()
     {
@@ -42,8 +42,6 @@ public class EnemyAI : MonoBehaviour
 
         if (distance <= detectionRange && distance > attackRange)
         {
-            // Player detected within detection range
-            //Debug.Log("Player detected within detection range: " + distance);
             MoveTowardsPlayer();
             //animator?.SetBool("isAttacking", false);
         }
@@ -57,7 +55,7 @@ public class EnemyAI : MonoBehaviour
             //animator?.SetBool("isRunning", false);
         }
 
-        cooldownTimer += Time.deltaTime;
+        attackTimer += Time.deltaTime;
     }
 
     private void MoveTowardsPlayer()
@@ -67,17 +65,15 @@ public class EnemyAI : MonoBehaviour
         float direction = Mathf.Sign(player.position.x - transform.position.x);
         enemyBody.linearVelocity = new Vector2(direction * moveSpeed, enemyBody.linearVelocity.y);
 
-        // Flip arah hadap
         if ((direction > 0 && !isFacingRight) || (direction < 0 && isFacingRight))
             Flip();
     }
 
     private void AttackPlayer()
     {
-        if (cooldownTimer < attackCooldown) return;
+        if (attackTimer < attackCooldown) return;
         //animator?.SetTrigger("Attack");
 
-        // Cek jika player masih dalam jangkauan
         if (Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             PlayerHealth health = player.GetComponent<PlayerHealth>();
@@ -85,23 +81,34 @@ public class EnemyAI : MonoBehaviour
             {
                 health.TakeDamage(damage, transform);
             }
+            attackTimer = 0;
         }
     }
 
     private void TryDamagePlayer(GameObject playerObject)
     {
-        if (Time.time - lastDamageTime < damageCooldown)
+        if (Time.time - lastContactDamageTime < damageCooldown)
             return;
 
         PlayerHealth playerHealth = playerObject.GetComponent<PlayerHealth>();
         if (playerHealth != null && !playerHealth.IsDead())
         {
             playerHealth.TakeDamage(contactDamage, transform);
-            lastDamageTime = Time.time;
+            lastContactDamageTime = Time.time;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // Abaikan tabrakan
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+            return;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

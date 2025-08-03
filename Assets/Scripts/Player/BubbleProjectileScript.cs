@@ -1,9 +1,8 @@
 using UnityEngine;
-using static EnemyHealth;
+using System.Collections; // Tambahkan ini
 
 public class BubbleProjectileScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private float speed = 5f;
     [SerializeField] private int damageToBoss = 15;
     [SerializeField] private float floatDuration = 2f;
@@ -19,12 +18,8 @@ public class BubbleProjectileScript : MonoBehaviour
     public void SetDirection(float dir)
     {
         direction = dir;
+        rb.linearVelocity = new Vector2(direction * speed, 0f);
         gameObject.SetActive(true);
-    }
-
-    private void Update()
-    {
-        rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,17 +28,17 @@ public class BubbleProjectileScript : MonoBehaviour
         {
             switch (enemy.enemyType)
             {
-                case EnemyType.Normal:
-                case EnemyType.Middle:
-                    enemy.FloatForSeconds(floatDuration);
+                case EnemyHealth.EnemyType.Normal:
+                case EnemyHealth.EnemyType.Middle:
+                    enemy.FloatForSeconds(floatDuration, collision.GetComponent<Rigidbody2D>());
                     break;
-                case EnemyType.Boss:
-                    enemy.TakeDamage(damageToBoss);
+
+                case EnemyHealth.EnemyType.Boss:
+                    enemy.TakeDamage(damageToBoss, transform);
                     break;
             }
 
-            gameObject.SetActive(false); // Nonaktifkan proyektil setelah mengenai musuh
+            gameObject.SetActive(false);
         }
     }
 }
-
