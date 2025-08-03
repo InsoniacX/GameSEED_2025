@@ -17,6 +17,7 @@ TagManager:
   - PortalDestination
   - FloatingBed
   - FallingLine
+  - RopeSegment
   layers:
   - Default
   - TransparentFX
@@ -53,6 +54,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 3502383523
+    locked: 0
+  - name: Rope
+    uniqueID: 1021366731
     locked: 0
   - name: Player
     uniqueID: 2606514181

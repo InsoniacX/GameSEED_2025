@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
 
 public class LogicScript : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class LogicScript : MonoBehaviour
     public float score;
     private float highScore;
     public GameObject container;
+    public TMP_Text scoreText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +31,11 @@ public class LogicScript : MonoBehaviour
     {
         Time.timeScale = 0f;
         container.SetActive(true);
+        // Update UI Text
+        if (scoreText != null)
+        {
+            scoreText.text = "Your Score is : " + score.ToString("0");
+        }
         if (score >  highScore)
         {
             highScore += score;

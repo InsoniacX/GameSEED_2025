@@ -13,8 +13,9 @@ public class TutorialController : MonoBehaviour
     {
         // Pastikan hanya halaman pertama yang aktif di awal
         ShowPage1();
+        Time.timeScale = 0;
 
-        
+
         nextButton.onClick.AddListener(ShowPage2);
         prevButton.onClick.AddListener(ShowPage1);
         closeButton.onClick.AddListener(CloseTutorial);
@@ -35,5 +36,6 @@ public class TutorialController : MonoBehaviour
     void CloseTutorial()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 }
