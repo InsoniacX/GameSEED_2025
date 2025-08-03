@@ -60,7 +60,7 @@ public class PlayerAttackScript : MonoBehaviour
 
     private void MeleeAttack()
     {
-        playerAnimation.SetTrigger("Attack");
+        playerAnimation.SetTrigger("Melee_Attack");
         cooldownTimer = 0f;
 
         // Deteksi musuh dalam jangkauan
