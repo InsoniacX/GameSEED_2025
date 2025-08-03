@@ -6,30 +6,37 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
 
-    public GameObject loadingScreen;
+    //public GameObject loadingScreen;
+
+    //public int sceneID = 3;
 
 
-    public void LoadScene(int sceneID)
-    {
-        StartCoroutine(LoadSceneAsync(sceneID));
-    }
+    //private void Start()
+    //{
+    //    StartCoroutine(LoadSceneAsync(sceneID));
+    //}
 
     //public void LoadScene(int sceneID)
     //{
-    //    SceneManager.LoadScene(sceneID);
-    //    Time.timeScale = 1; // Ensure time scale is reset when loading a new scene
+
     //}
 
-    IEnumerator LoadSceneAsync(int sceneID)
+    public void LoadScene(int sceneID)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
-        loadingScreen.SetActive(true);
-        while (!operation.isDone)
-        {
-            yield return null;
-        }
-        loadingScreen.SetActive(false);
+        SceneManager.LoadScene(sceneID);
+        Time.timeScale = 1; // Ensure time scale is reset when loading a new scene
     }
+
+    //IEnumerator LoadSceneAsync(int sceneID)
+    //{
+    //    AsyncOperation operation = SceneManager.LoadSceneAsync(sceneID);
+    //    loadingScreen.SetActive(true);
+    //    while (!operation.isDone)
+    //    {
+    //        yield return null;
+    //    }
+    //    loadingScreen.SetActive(false);
+    //}
 
     //public void Credits()
     //{

@@ -6,6 +6,7 @@ public class PlayerAttackScript : MonoBehaviour
     [SerializeField] private Transform meleePoint;
     [SerializeField] private float meleeRange = 1f;
     [SerializeField] private int meleeDamage = 25;
+    [SerializeField] private float knockbackForce = 5f;
     [SerializeField] private LayerMask enemyLayer;
 
     [Header("Ranged Settings")]
@@ -33,7 +34,6 @@ public class PlayerAttackScript : MonoBehaviour
 
     private void Update()
     {
-        // ... (Logika ganti senjata)
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentWeapon = WeaponType.Melee;
@@ -50,26 +50,9 @@ public class PlayerAttackScript : MonoBehaviour
             playerAnimation.SetInteger("WeaponID", 2);
         }
 
-        if (Input.GetMouseButtonDown(0) && cooldownTimer >= attackCooldown)
+        if (currentWeapon == WeaponType.Melee && Input.GetMouseButtonDown(0) && cooldownTimer >= attackCooldown)
         {
-            switch (currentWeapon)
-            {
-                case WeaponType.Melee:
-                    MeleeAttack();
-                    break;
-
-                case WeaponType.MagicWand:
-                    FireProjectile();
-                    playerAnimation.SetTrigger("Attack_MagicWand");
-                    cooldownTimer = 0f;
-                    break;
-
-                case WeaponType.BubbleGun:
-                    FireProjectile();
-                    playerAnimation.SetTrigger("Attack_BubbleGun");
-                    cooldownTimer = 0f;
-                    break;
-            }
+            MeleeAttack();
         }
 
         cooldownTimer += Time.deltaTime;
@@ -77,7 +60,7 @@ public class PlayerAttackScript : MonoBehaviour
 
     private void MeleeAttack()
     {
-        playerAnimation.SetTrigger("Attack_Melee");
+        playerAnimation.SetTrigger("Melee_Attack");
         cooldownTimer = 0f;
 
         // Deteksi musuh dalam jangkauan
@@ -87,7 +70,13 @@ public class PlayerAttackScript : MonoBehaviour
         {
             if (enemy.TryGetComponent<EnemyHealth>(out var enemyHealth))
             {
-                enemyHealth.TakeDamage(meleeDamage, transform);
+                enemyHealth.TakeDamage(meleeDamage);
+
+                if (enemy.TryGetComponent<Rigidbody2D>(out var rb))
+                {
+                    Vector2 dir = (enemy.transform.position - transform.position).normalized;
+                    rb.AddForce(dir * knockbackForce, ForceMode2D.Impulse);
+                }
             }
         }
     }
@@ -101,29 +90,20 @@ public class PlayerAttackScript : MonoBehaviour
         }
     }
 
+    // Fungsi ini tidak dipakai jika hanya melee digunakan
     private void FireProjectile()
     {
-        int projectileIndex = FindProjectile();
-        if (projectileIndex >= 0)
-        {
-            GameObject projectile = projectiles[projectileIndex];
-            projectile.transform.position = projectilePoint.position;
-
-            ProjectileScript ps = projectile.GetComponent<ProjectileScript>();
-            if (ps != null)
-            {
-                ps.SetDirection(Mathf.Sign(transform.localScale.x));
-            }
-        }
+        projectiles[FindProjectile()].transform.position = projectilePoint.position;
+        projectiles[FindProjectile()].GetComponent<ProjectileScript>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
 
     private int FindProjectile()
     {
         for (int i = 0; i < projectiles.Length; i++)
         {
-            if (projectiles[i] != null && !projectiles[i].activeInHierarchy)
+            if (!projectiles[i].activeInHierarchy)
                 return i;
         }
-        return -1;
+        return 0;
     }
 }
