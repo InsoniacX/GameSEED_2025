@@ -5699,7 +5699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &630447998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15278,7 +15278,7 @@ MonoBehaviour:
   - {fileID: 424535826}
   - {fileID: 396746227}
   - {fileID: 952704300}
-  currentWeapon: 1
+  currentWeapon: 0
 --- !u!50 &1657209158
 Rigidbody2D:
   serializedVersion: 5
