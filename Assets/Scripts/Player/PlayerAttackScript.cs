@@ -18,6 +18,14 @@ public class PlayerAttackScript : MonoBehaviour
     private PlayerMovementScript playerMovement;
     private float cooldownTimer = Mathf.Infinity;
 
+    public enum WeaponType
+    {
+        Melee,
+        MagicWand,
+        BubbleGun,
+    }
+    public WeaponType currentWeapon = WeaponType.Melee;
+
     private void Awake()
     {
         playerAnimation = GetComponent<Animator>();
@@ -26,9 +34,25 @@ public class PlayerAttackScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && playerMovement.CanAttack())
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            MeleeAttack(); // Serangan default sekarang adalah melee
+            currentWeapon = WeaponType.Melee;
+            playerAnimation.SetInteger("WeaponID", 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentWeapon = WeaponType.MagicWand;
+            playerAnimation.SetInteger("WeaponID", 1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currentWeapon = WeaponType.BubbleGun;
+            playerAnimation.SetInteger("WeaponID", 2);
+        }
+
+        if (currentWeapon == WeaponType.Melee && Input.GetMouseButtonDown(0) && cooldownTimer >= attackCooldown)
+        {
+            MeleeAttack();
         }
 
         cooldownTimer += Time.deltaTime;

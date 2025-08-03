@@ -1,49 +1,86 @@
+using System.Collections;
 using UnityEngine;
 
-public class EnemySpawnArea : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public float spawnInterval = 3f; // waktu antar spawn musuh (dalam detik)
+    [Header("Spawn Settings")]
+    public GameObject[] enemyPrefabs;      // Prefab musuh yang bisa di-spawn
+    public float spawnInterval = 5f;        // Waktu antar spawn
+    public int maxEnemies;             // Maksimum musuh yang aktif di scene
 
-    private BoxCollider2D spawnArea;
+    [Header("Area Settings")]
+    public Vector2 areaSize = new Vector2(5f, 5f);   // Ukuran area spawn
+
+    [Header("Wave Settings")]
+    public bool useWaveMode = false;
+    public int enemiesPerWave = 5;
+    public float waveInterval = 10f;
+
+    private float waveTimer;
+
     private float timer;
+    private int currentEnemies;
 
-    void Awake()
+    private void Start()
     {
-        spawnArea = GetComponent<BoxCollider2D>();
-        if (!spawnArea || !spawnArea.isTrigger)
-        {
-            Debug.LogWarning("BoxCollider2D harus diset sebagai Trigger dan ada di GameObject ini!");
-        }
-
         timer = spawnInterval;
     }
 
-    void Update()
+    private void Update()
     {
-        timer -= Time.deltaTime;
-
-        if (timer <= 0f)
+        if (useWaveMode)
         {
-            SpawnEnemy();
-            timer = spawnInterval;
+            waveTimer -= Time.deltaTime;
+
+            if (waveTimer <= 0f)
+            {
+                StartCoroutine(SpawnWave(enemiesPerWave));
+                waveTimer = waveInterval;
+            }
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f && currentEnemies < maxEnemies)
+            {
+                SpawnEnemy();
+                timer = spawnInterval;
+            }
         }
     }
 
-    void SpawnEnemy()
+    private IEnumerator SpawnWave(int amount)
     {
-        Vector2 spawnPosition = GetRandomSpawnPositionInArea();
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        for (int i = 0; i < amount && currentEnemies < maxEnemies; i++)
+        {
+            SpawnEnemy();
+            yield return new WaitForSeconds(0.3f); // jeda kecil antar musuh
+        }
     }
 
-    Vector2 GetRandomSpawnPositionInArea()
+    private void SpawnEnemy()
     {
-        Vector2 center = spawnArea.bounds.center;
-        Vector2 size = spawnArea.bounds.size;
+        // Pilih musuh secara acak
+        GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
-        float randomX = Random.Range(center.x - size.x / 2f, center.x + size.x / 2f);
-        float randomY = Random.Range(center.y - size.y / 2f, center.y + size.y / 2f);
+        // Tentukan posisi spawn dalam area
+        Vector2 spawnPosition = (Vector2)transform.position + new Vector2(
+            Random.Range(-areaSize.x / 2, areaSize.x / 2),
+            Random.Range(-areaSize.y / 2, areaSize.y / 2)
+        );
 
-        return new Vector2(randomX, randomY);
+        // Spawn musuh
+        GameObject enemy = Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
+        currentEnemies++;
+
+        // Kurangi jumlah saat musuh mati
+        enemy.GetComponent<EnemyHealth>().OnDeath += () => currentEnemies--;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, areaSize);
     }
 }
