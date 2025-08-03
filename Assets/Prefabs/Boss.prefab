@@ -122,7 +122,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.39892197, y: -1.9256198}
+  m_Offset: {x: -0.07042369, y: -1.7770789}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +132,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2128873, y: 15.848324}
+  m_Size: {x: 0.78114265, y: 19.276031}
   m_EdgeRadius: 0
 --- !u!1 &7210289175347047849
 GameObject:
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 854182515639957477}
   - component: {fileID: 8591381132232856528}
   m_Layer: 11
-  m_Name: MeleeEnemy
+  m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,8 +164,8 @@ Transform:
   m_GameObject: {fileID: 7210289175347047849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5092, y: -0.972, z: 0}
-  m_LocalScale: {x: 0.063255, y: 0.06446761, z: 0.055585057}
+  m_LocalPosition: {x: -8.43, y: -0.71, z: 0}
+  m_LocalScale: {x: 0.09879165, y: 0.100685515, z: 0.08681274}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9151754315233016108}
@@ -215,7 +215,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9174028886062429659, guid: f5e8fd03828efde40b74182db1bf0053, type: 3}
+  m_Sprite: {fileID: -6051521588232645407, guid: cbd8364977c7e304cb00aed5ff65a636, type: 3}
   m_Color: {r: 1, g: 0.5330188, b: 0.5330188, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -260,17 +260,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.34254026, y: 2.1683064}
+  m_Offset: {x: 0.12520456, y: 1.2460952}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 22.66, y: 21.792332}
+    oldSize: {x: 13.48, y: 23.952564}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 21.909546, y: 18.542332}
+  m_Size: {x: 13.952329, y: 21.206799}
   m_EdgeRadius: 0
 --- !u!50 &7561186512643203073
 Rigidbody2D:
@@ -315,8 +315,8 @@ MonoBehaviour:
   detectionRange: 6
   attackRange: 0.4
   attackCooldown: 2
-  damage: 50
-  contactDamage: 30
+  damage: 100
+  contactDamage: 70
   damageCooldown: 1.5
   groundCheck: {fileID: 9151754315233016108}
   groundCheckRadius: 0.1
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c3a63a78764da4680b41b5c706556b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 300
   scoreValue: 10
   enemyRigidbody: {fileID: 0}
   knockbackForce: 10
