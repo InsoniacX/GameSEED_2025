@@ -42,7 +42,7 @@ public class PlayerColiison : MonoBehaviour
             if (playerStep > 800 || playerStep < -800)
             {
                 playerStep = 0;
-                logicScript.addScore(10);
+                //logicScript.addScore(10);
             }
         }
 

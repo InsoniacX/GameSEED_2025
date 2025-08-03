@@ -38,9 +38,6 @@ public class PlayerHealth : MonoBehaviour
             movementScript.ApplyKnockback(source.position, 7f);
         }
 
-        // Flash red
-        StartCoroutine(DamageFlash());
-
         // Cek mati
         if (currentHealth <= 0)
         {
@@ -67,14 +64,6 @@ public class PlayerHealth : MonoBehaviour
         }
 
         isInvincible = false;
-    }
-
-    private IEnumerator DamageFlash()
-    {
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        playerAnimation.SetTrigger("Hurt");
-        spriteRenderer.color = Color.white;
     }
 
     private void Die()
