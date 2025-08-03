@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerMovementScript movementScript;
     private Animator playerAnimation;
+    private LogicScript logicScript;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         movementScript = GetComponent<PlayerMovementScript>();
         playerAnimation = GetComponent<Animator>();
+        logicScript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     public void TakeDamage(int damage, Transform source)
@@ -85,8 +87,15 @@ public class PlayerHealth : MonoBehaviour
 
         playerAnimation.SetTrigger("Die"); // bisa diganti efek mati/animasi
 
-        StartCoroutine(RespawnAfterDelay(2f));
-        //gameObject.SetActive(false);
+        if (logicScript != null)
+        {
+            logicScript.gameOver();
+        }
+        else         {
+            Debug.LogWarning("LogicScript is not assigned in PlayerHealth.");
+        }
+        //StartCoroutine(RespawnAfterDelay(2f));
+        //container.SetActive(true);
     }
 
     private IEnumerator RespawnAfterDelay(float delay)
