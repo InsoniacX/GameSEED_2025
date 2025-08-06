@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     public static GameOverManager Instance;
+    public bool over;
 
     [SerializeField] private GameObject container;
 
@@ -21,6 +22,11 @@ public class GameOverManager : MonoBehaviour
     //    Time.timeScale = 0f;
     //}
 
+    public void Start()
+    {
+        over = false;
+    }
+
     // Fungsi untuk mengulang game
     public void RetryGame()
     {
@@ -28,14 +34,14 @@ public class GameOverManager : MonoBehaviour
         Time.timeScale = 1f;
 
         // Muat ulang scene saat ini
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
 
     // Fungsi untuk keluar dari game
     public void MainMenuBtn(int sceneID)
     {
         // Load the main menu scene (assuming it's named "MainMenu")
-        SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene(0);
         Time.timeScale = 1; // Ensure time scale is reset when loading a new scene
     }
 }

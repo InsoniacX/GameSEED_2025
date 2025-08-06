@@ -1,9 +1,14 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerColiison : MonoBehaviour
 {
     private LogicScript logicScript;
     private bool isOnPlatform;
+    public float score = 0;
+    public TMP_Text inGameScoreText;
+    public GameOverManager gameOverManager;
 
     private float horizontalInput;
     private float playerStep;
@@ -39,10 +44,16 @@ public class PlayerColiison : MonoBehaviour
         if (horizontalInput > 0.01f || horizontalInput < 0.01)
         {
             playerStep += horizontalInput;
-            if (playerStep > 800 || playerStep < -800)
+            if (playerStep > 300 || playerStep < -300)
             {
                 playerStep = 0;
-                //logicScript.addScore(10);
+                if (!gameOverManager.over)
+                {
+                    logicScript.addScore(10);
+                    score += 10;
+                }
+                inGameScoreText.text = "Score: " + score;
+                Debug.Log(score);
             }
         }
 

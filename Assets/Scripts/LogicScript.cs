@@ -21,7 +21,7 @@ public class LogicScript : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         //Debug.Log("Score : " + score);
     }
@@ -52,14 +52,14 @@ public class LogicScript : MonoBehaviour
 
     public void retryBtn()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
         Time.timeScale = 1; // Resume the game
     }
 
     public void mainMenuBtn()
     {
         // Load the main menu scene (assuming it's named "MainMenu")
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
         Time.timeScale = 1; // Ensure time scale is reset when loading a new scene
     }
 

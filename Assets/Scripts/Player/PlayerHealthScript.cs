@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerMovementScript movementScript;
     private Animator playerAnimation;
     private LogicScript logicScript;
+    public GameOverManager gameOverManager;
 
     private void Awake()
     {
@@ -78,7 +79,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (logicScript != null)
         {
+
             logicScript.gameOver();
+            gameOverManager.over = true;
         }
         else         {
             Debug.LogWarning("LogicScript is not assigned in PlayerHealth.");

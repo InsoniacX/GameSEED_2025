@@ -767,11 +767,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: a9e391456da4bb94f8657aab865e413e, type: 3}
   spawnInterval: 1.5
   maxEnemies: 2
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 100
   areaSize: {x: 5.6, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -2052,7 +2058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &189836850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2071,7 +2077,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -1080.122, y: -429.015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &189836851
@@ -2550,7 +2556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &216690265
 Transform:
   m_ObjectHideFlags: 0
@@ -2560,8 +2566,8 @@ Transform:
   m_GameObject: {fileID: 216690264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -2639,8 +2645,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -2718,12 +2724,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3219,11 +3225,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
   spawnInterval: 5
-  maxEnemies: 2
+  maxEnemies: 4
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 0
   areaSize: {x: 12.85, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -3899,6 +3911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09b2ca5feb97034c92197ef28d9ef29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  over: 0
   container: {fileID: 0}
 --- !u!1 &366444852
 GameObject:
@@ -4217,7 +4230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &396746228
 Transform:
   m_ObjectHideFlags: 0
@@ -4227,8 +4240,8 @@ Transform:
   m_GameObject: {fileID: 396746227}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -4306,8 +4319,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -4385,12 +4398,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4452,7 +4465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &424535827
 Transform:
   m_ObjectHideFlags: 0
@@ -4462,8 +4475,8 @@ Transform:
   m_GameObject: {fileID: 424535826}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -4541,8 +4554,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -4620,12 +4633,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5344,11 +5357,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
   spawnInterval: 5
   maxEnemies: 4
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 0
   areaSize: {x: 11.4, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -6876,11 +6895,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
   spawnInterval: 5
-  maxEnemies: 3
+  maxEnemies: 4
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 0
   areaSize: {x: 11.4, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -7203,7 +7228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &825148720
 Transform:
   m_ObjectHideFlags: 0
@@ -7213,8 +7238,8 @@ Transform:
   m_GameObject: {fileID: 825148719}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -7292,8 +7317,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -7371,12 +7396,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -7920,11 +7945,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: a9e391456da4bb94f8657aab865e413e, type: 3}
   spawnInterval: 5
-  maxEnemies: 3
+  maxEnemies: 2
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 100
   areaSize: {x: 4.6, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -7984,7 +8015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &890859636
 Transform:
   m_ObjectHideFlags: 0
@@ -7994,8 +8025,8 @@ Transform:
   m_GameObject: {fileID: 890859635}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -8073,8 +8104,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -8152,12 +8183,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -8366,10 +8397,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs: []
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: 472b0ca7e364d7248ae13f9c648ce64f, type: 3}
   spawnInterval: 5
-  maxEnemies: 0
+  maxEnemies: 1
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 100
+  bossScoreThreshold: 500
   areaSize: {x: 5, y: 5}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -8775,7 +8813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &952704301
 Transform:
   m_ObjectHideFlags: 0
@@ -8785,8 +8823,8 @@ Transform:
   m_GameObject: {fileID: 952704300}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -8864,8 +8902,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -8943,12 +8981,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9248,11 +9286,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: a9e391456da4bb94f8657aab865e413e, type: 3}
   spawnInterval: 5
   maxEnemies: 2
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 100
   areaSize: {x: 8.5, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -9530,11 +9574,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
   spawnInterval: 1.5
-  maxEnemies: 2
+  maxEnemies: 4
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 0
   areaSize: {x: 5.6, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -9979,7 +10029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1125807286
 Transform:
   m_ObjectHideFlags: 0
@@ -9989,8 +10039,8 @@ Transform:
   m_GameObject: {fileID: 1125807285}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -10068,8 +10118,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -10147,12 +10197,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -10192,7 +10242,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  scoreValue: 10
   enemyRigidbody: {fileID: 1131349675}
+  knockbackForce: 10
+  knockbackDuration: 0.2
   enemyType: 0
 --- !u!114 &1131349674
 MonoBehaviour:
@@ -11873,7 +11926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1330295186
 Transform:
   m_ObjectHideFlags: 0
@@ -11883,8 +11936,8 @@ Transform:
   m_GameObject: {fileID: 1330295185}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -11962,8 +12015,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -12041,12 +12094,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -12183,11 +12236,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
   spawnInterval: 5
-  maxEnemies: 3
+  maxEnemies: 4
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 0
   areaSize: {x: 4.6, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -14806,7 +14865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1600506642
 Transform:
   m_ObjectHideFlags: 0
@@ -14816,8 +14875,8 @@ Transform:
   m_GameObject: {fileID: 1600506641}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -14895,8 +14954,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -14974,12 +15033,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -15411,6 +15470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   invincibilityDuration: 1
+  gameOverManager: {fileID: 365854553}
 --- !u!114 &1657209156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15447,7 +15507,6 @@ MonoBehaviour:
   meleePoint: {fileID: 928293847}
   meleeRange: 0.4
   meleeDamage: 50
-  knockbackForce: 5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 2048
@@ -15624,6 +15683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8371c61cfba41924e87048b0aeec80f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  inGameScoreText: {fileID: 1662843974}
+  gameOverManager: {fileID: 365854553}
 --- !u!114 &1657209163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16718,7 +16780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1820406400
 Transform:
   m_ObjectHideFlags: 0
@@ -16766,7 +16828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1852435989
 Transform:
   m_ObjectHideFlags: 0
@@ -16776,8 +16838,8 @@ Transform:
   m_GameObject: {fileID: 1852435988}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -16855,8 +16917,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -16934,12 +16996,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -17735,11 +17797,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: a9e391456da4bb94f8657aab865e413e, type: 3}
   spawnInterval: 5
-  maxEnemies: 3
+  maxEnemies: 2
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 100
   areaSize: {x: 7, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -19088,11 +19156,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80537490293f39e4eb33070269d8b054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 7210289175347047849, guid: 247abdc2c2a7b4243a26267e71ec1506, type: 3}
+  normalEnemyPrefabs: []
+  middleEnemyPrefabs: []
+  bossPrefab: {fileID: 7210289175347047849, guid: a9e391456da4bb94f8657aab865e413e, type: 3}
   spawnInterval: 5
-  maxEnemies: 4
+  maxEnemies: 2
+  logicScript: {fileID: 1269860140}
+  middleEnemyScoreThreshold: 0
+  bossScoreThreshold: 100
   areaSize: {x: 11.4, y: 1.53}
+  activationRange: 10
+  minSpawnDistanceToPlayer: 2
   useWaveMode: 0
   enemiesPerWave: 5
   waveInterval: 10
@@ -19116,7 +19190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2084191375
 Transform:
   m_ObjectHideFlags: 0
@@ -19126,8 +19200,8 @@ Transform:
   m_GameObject: {fileID: 2084191374}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -19205,8 +19279,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -19284,12 +19358,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -19773,7 +19847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2128451496
 Transform:
   m_ObjectHideFlags: 0
@@ -19783,8 +19857,8 @@ Transform:
   m_GameObject: {fileID: 2128451495}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1981997, y: -0.81624985, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_LocalPosition: {x: -10.62, y: 1.5261, z: 0}
+  m_LocalScale: {x: 0.19703999, y: 0.19703999, z: 0.19703999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1820406400}
@@ -19862,8 +19936,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2, y: 0.66}
-    newSize: {x: 1.2, y: 0.66}
+    oldSize: {x: 3.11, y: 3.86}
+    newSize: {x: 3.11, y: 3.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -19941,12 +20015,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
+  m_Sprite: {fileID: 8288426215254106694, guid: 615eba456a1416044af2fff9a4004270, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.66}
+  m_Size: {x: 3.11, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
