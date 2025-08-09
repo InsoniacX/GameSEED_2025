@@ -5,26 +5,21 @@ public class Health : MonoBehaviour
 {
     private Image image;
 
-    public float health = 100;
-    
+    private PlayerHealth playerHealth;
+
     private void Start()
     {
         image = GetComponent<Image>();
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     private void Update()
     {
-        // Ensure the health value is clamped between 0 and 100
-        health = Mathf.Clamp(health, 0, 100);
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (playerHealth != null)
         {
-            ChangeHealth(-10); // Example: Decrease health by 10 when space is pressed
+            // Update UI health berdasarkan currentHealth dari PlayerHealthScript
+            float healthPercentage = (float)playerHealth.GetCurrentHealth() / playerHealth.GetMaxHealth();
+            image.fillAmount = healthPercentage;
         }
-    }
-
-    public void ChangeHealth(float changeAmount)
-    {
-        health += changeAmount;
-        image.fillAmount = health / 100;
     }
 }
